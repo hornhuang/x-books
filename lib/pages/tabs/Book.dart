@@ -9,60 +9,84 @@ class BookPage extends StatefulWidget {
   _BookPageState createState() => _BookPageState();
 }
 
-class _BookPageState extends State<BookPage> {
+class _BookPageState extends State<BookPage>
+    with SingleTickerProviderStateMixin {
+  TabController _tabController;
 
-  var _bookLists = [];
+  var _tabs = [
+    "人工智能",
+    "经济学",
+    "人工智能",
+    "经济学"
+  ];
+
+  var _tabViews = [
+    Text("人工智能"),
+    Text("经济学"),
+    Text("人工智能"),
+    Text("经济学")
+  ];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _getBooks();
+    _tabController = new TabController(length: 10, vsync: this);
+    _tabController.addListener((){
+      print(_tabController.index);
+    });
   }
 
-  _getBooks() async{
+  @override
+  void dispose() {
+    super.dispose();
+    if (_tabController != null) {
+      _tabController.dispose();
+    }
+  }
+
+  _getBooks() async {
     Response response = await Dio().get(GET_BOOKS_BY_NAME + "编程");
     print(response.data);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: ListView(padding: EdgeInsets.all(10), children: <Widget>[
-      ListTile(
-        leading: Container(
-          width: 75,
-          height: 125,
-          child: Image.network(
-            "https://www.itying.com/images/flutter/1.png",
-            fit: BoxFit.cover,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: TabBar(
+          isScrollable: true,
+          controller: this._tabController,
+          indicatorSize: TabBarIndicatorSize.tab,
+          tabs: <Widget>[
+            Tab(text:"人工智能"),
+            Tab(text:"经济学"),
+            Tab(text:"人工智能"),
+            Tab(text:"经济学"),
+            Tab(text:"人工智能"),
+            Tab(text:"经济学"),
+            Tab(text:"人工智能"),
+            Tab(text:"经济学"),
+            Tab(text:"人工智能"),
+            Tab(text:"经济学")
+          ],
         ),
-        title: Text('华北黄淮高温雨今起强势登场'),
-        subtitle: Text('中国天气网讯 21日开始，华北黄淮高温雨今起强势登场'),
       ),
-      Divider(),
-      ListTile(
-        leading: Container(
-          width: 75,
-          height: 125,
-          child: Image.network("https://www.itying.com/images/flutter/1.png",
-              fit: BoxFit.cover),
-        ),
-        title: Text('华北黄淮高温雨今起强势登场'),
-        subtitle: Text('中国天气网讯 21日开始，华北黄淮高温雨今起强势登场'),
+      body: TabBarView(
+        controller: this._tabController,
+        children: <Widget>[
+          Center(child: Text("人工智能")),
+          Center(child: Text("经济学")),
+          Center(child: Text("人工智能")),
+          Center(child: Text("经济学")),
+          Center(child: Text("人工智能")),
+          Center(child: Text("经济学")),
+          Center(child: Text("人工智能")),
+          Center(child: Text("经济学")),
+          Center(child: Text("人工智能")),
+          Center(child: Text("经济学"))
+        ]
       ),
-      Divider(),
-      ListTile(
-        leading: Container(
-          width: 75,
-          height: 125,
-          child: Image.network("https://www.itying.com/images/flutter/1.png",
-              fit: BoxFit.cover),
-        ),
-        title: Text('华北黄淮高温雨今起强势登场'),
-        subtitle: Text('中国天气网讯 21日开始，华北黄淮高温雨今起强势登场'),
-      ),
-    ]));
+    );
   }
 }
