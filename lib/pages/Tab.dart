@@ -15,8 +15,8 @@ class _TabsState extends State<Tabs> {
 
   var _concurrentindex = 0;
   var _pageLists = [
-    FindPage(),
     BookPage(),
+    FindPage(),
     HomePage()
   ];
 
@@ -26,7 +26,7 @@ class _TabsState extends State<Tabs> {
        child: Scaffold(
 
         appBar: AppBar(
-          title: Text("appbar")
+          title: Text("X-Books")
         ),
         body: _pageLists[this._concurrentindex],
 
