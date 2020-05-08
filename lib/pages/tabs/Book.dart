@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:xbooks/utils/UrlHelper.dart';
+import 'package:xbooks/pages/tabs/BookTabs.dart';
 
 class BookPage extends StatefulWidget {
   BookPage({Key key}) : super(key: key);
@@ -45,11 +45,6 @@ class _BookPageState extends State<BookPage>
     }
   }
 
-  _getBooks() async {
-    Response response = await Dio().get(GET_BOOKS_BY_NAME + "编程");
-    print(response.data);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +52,7 @@ class _BookPageState extends State<BookPage>
         title: TabBar(
           isScrollable: true,
           controller: this._tabController,
-          indicatorSize: TabBarIndicatorSize.tab,
+          indicatorSize: TabBarIndicatorSize.label,
           tabs: <Widget>[
             Tab(text:"人工智能"),
             Tab(text:"经济学"),
@@ -75,16 +70,16 @@ class _BookPageState extends State<BookPage>
       body: TabBarView(
         controller: this._tabController,
         children: <Widget>[
-          Center(child: Text("人工智能")),
-          Center(child: Text("经济学")),
-          Center(child: Text("人工智能")),
-          Center(child: Text("经济学")),
-          Center(child: Text("人工智能")),
-          Center(child: Text("经济学")),
-          Center(child: Text("人工智能")),
-          Center(child: Text("经济学")),
-          Center(child: Text("人工智能")),
-          Center(child: Text("经济学"))
+          Center(child: BookTabs("人工智能")),
+          Center(child: BookTabs("经济学")),
+          Center(child: BookTabs("人工智能")),
+          Center(child: BookTabs("经济学")),
+          Center(child: BookTabs("人工智能")),
+          Center(child: BookTabs("经济学")),
+          Center(child: BookTabs("人工智能")),
+          Center(child: BookTabs("经济学")),
+          Center(child: BookTabs("人工智能")),
+          Center(child: BookTabs("经济学")),
         ]
       ),
     );
