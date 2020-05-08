@@ -13,23 +13,8 @@ class _BookPageState extends State<BookPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
-  var _tabs = [
-    "人工智能",
-    "经济学",
-    "人工智能",
-    "经济学"
-  ];
-
-  var _tabViews = [
-    Text("人工智能"),
-    Text("经济学"),
-    Text("人工智能"),
-    Text("经济学")
-  ];
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = new TabController(length: 10, vsync: this);
     _tabController.addListener((){
@@ -55,31 +40,31 @@ class _BookPageState extends State<BookPage>
           indicatorSize: TabBarIndicatorSize.label,
           tabs: <Widget>[
             Tab(text:"人工智能"),
+            Tab(text:"花卉"),
             Tab(text:"经济学"),
-            Tab(text:"人工智能"),
-            Tab(text:"经济学"),
-            Tab(text:"人工智能"),
-            Tab(text:"经济学"),
-            Tab(text:"人工智能"),
-            Tab(text:"经济学"),
-            Tab(text:"人工智能"),
-            Tab(text:"经济学")
+            Tab(text:"水族"),
+            Tab(text:"哲学"),
+            Tab(text:"历史"),
+            Tab(text:"没事"),
+            Tab(text:"旅游"),
+            Tab(text:"育儿"),
+            Tab(text:"心理学")
           ],
         ),
       ),
       body: TabBarView(
         controller: this._tabController,
         children: <Widget>[
-          Center(child: BookTabs("人工智能")),
-          Center(child: BookTabs("经济学")),
-          Center(child: BookTabs("人工智能")),
-          Center(child: BookTabs("经济学")),
-          Center(child: BookTabs("人工智能")),
-          Center(child: BookTabs("经济学")),
-          Center(child: BookTabs("人工智能")),
-          Center(child: BookTabs("经济学")),
-          Center(child: BookTabs("人工智能")),
-          Center(child: BookTabs("经济学")),
+            Center(child: BookTabs("人工智能")),
+            Center(child: BookTabs("花卉")),
+            Center(child: BookTabs("经济学")),
+            Center(child: BookTabs("水族")),
+            Center(child: BookTabs("哲学")),
+            Center(child: BookTabs("历史")),
+            Center(child: BookTabs("没事")),
+            Center(child: BookTabs("旅游")),
+            Center(child: BookTabs("育儿")),
+            Center(child: BookTabs("心理学"))
         ]
       ),
     );
