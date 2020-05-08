@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:xbooks/utils/UrlHelper.dart';
 
 class BookPage extends StatefulWidget {
   BookPage({Key key}) : super(key: key);
@@ -8,6 +10,21 @@ class BookPage extends StatefulWidget {
 }
 
 class _BookPageState extends State<BookPage> {
+
+  var _bookLists = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _getBooks();
+  }
+
+  _getBooks() async{
+    Response response = await Dio().get(GET_BOOKS_BY_NAME + "编程");
+    print(response.data);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
