@@ -1,5 +1,5 @@
-var ALL_BOOKS    = "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${MY_KEY}";
+// 根据 书名/类别 部分搜索
+var GET_BOOKS_BY_NAME    = "https://book.feelyou.top/search/";
 
-var AUTHOR_BOOKS = "https://api.nytimes.com/svc/books/v3/reviews.json?author=Stephen+King&api-key=${MY_KEY}";
-
-var MY_KEY       = "nHvk2jaUl2Zgv6gWAHoCkrN5A1bRWuU2";
+// 后期如果加二维码扫描，可以试下这个
+var GET_BOOKS_DETAIL_BY_IBSN = "http://book.feelyou.top/isbn/";
