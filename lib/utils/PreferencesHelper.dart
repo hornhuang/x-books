@@ -1,246 +1,310 @@
-import 'dart:convert';
+// import 'dart:convert';
 
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
-// 人工智能
-var AI = 'AI';
+// // 人工智能
+// var AI = 'AI';
 
-// 花卉
-var FLOWER = 'FLOWER';
+// // 花卉
+// var FLOWER = 'FLOWER';
 
-//经济学
-var ECONOMICS = 'ECONOMICS';
+// //经济学
+// var ECONOMICS = 'ECONOMICS';
 
-// 水族
-var AQUARIUM = 'AQUARIUM';
+// // 水族
+// var AQUARIUM = 'AQUARIUM';
 
-//哲学
-var PHILOSOPHY = 'PHILOSOPHY';
+// //哲学
+// var PHILOSOPHY = 'PHILOSOPHY';
 
-// 历史
-var HISTORY = 'HISTORY';
+// // 历史
+// var HISTORY = 'HISTORY';
 
-// 美食
-var CATE = 'CATE';
+// // 美食
+// var CATE = 'CATE';
 
-// 旅游
-var TRAVEL = 'TRAVEL';
+// // 旅游
+// var TRAVEL = 'TRAVEL';
 
-// 育儿
-var PARENTING = 'PARENTING';
+// // 育儿
+// var PARENTING = 'PARENTING';
 
-// 心理学
-var PSYCHOLOGY = 'PSYCHOLOGY';
+// // 心理学
+// var PSYCHOLOGY = 'PSYCHOLOGY';
 
-Future<SharedPreferences> _getPref() async{
-  return await SharedPreferences.getInstance();
-}
+// Future<SharedPreferences> _getPref() async {
+//   return await SharedPreferences.getInstance();
+// }
 
-getAI() {
-  _getPref().then((value){value.getString(AI)??"";});
-}
+// getAI() {
+//   _getPref().then((value) {
+//     value.getString(AI) ?? "";
+//   });
+// }
 
-getFLOWER() {
-  _getPref().then((value){value.getString(FLOWER)??"";});
-}
+// getFLOWER() {
+//   _getPref().then((value) {
+//     value.getString(FLOWER) ?? "";
+//   });
+// }
 
-getECONOMICS() {
-  _getPref().then((value){value.getString(ECONOMICS)??"";});
-}
+// getECONOMICS() {
+//   _getPref().then((value) {
+//     value.getString(ECONOMICS) ?? "";
+//   });
+// }
 
-getAQUARIUM() {
-  _getPref().then((value){value.getString(AQUARIUM)??"";});
-}
+// getAQUARIUM() {
+//   _getPref().then((value) {
+//     value.getString(AQUARIUM) ?? "";
+//   });
+// }
 
-getPHILOSOPHY() {
-  _getPref().then((value){value.getString(PHILOSOPHY)??"";});
-}
+// getPHILOSOPHY() {
+//   _getPref().then((value) {
+//     value.getString(PHILOSOPHY) ?? "";
+//   });
+// }
 
-getHISTORY() {
-  _getPref().then((value){value.getString(HISTORY)??"";});
-}
+// getHISTORY() {
+//   _getPref().then((value) {
+//     value.getString(HISTORY) ?? "";
+//   });
+// }
 
-getCATE() {
-  _getPref().then((value){value.getString(CATE)??"";});
-}
+// getCATE() {
+//   _getPref().then((value) {
+//     value.getString(CATE) ?? "";
+//   });
+// }
 
-getTRAVEL() {
-  _getPref().then((value){value.getString(TRAVEL)??"";});
-}
+// getTRAVEL() {
+//   _getPref().then((value) {
+//     value.getString(TRAVEL) ?? "";
+//   });
+// }
 
-getPARENTING() {
-  _getPref().then((value){value.getString(PARENTING)??"";});
-}
+// getPARENTING() {
+//   _getPref().then((value) {
+//     value.getString(PARENTING) ?? "";
+//   });
+// }
 
-getPSYCHOLOGY() {
-  _getPref().then((value){value.getString(PSYCHOLOGY)??"";});
-}
+// getPSYCHOLOGY() {
+//   _getPref().then((value) {
+//     value.getString(PSYCHOLOGY) ?? "";
+//   });
+// }
 
-// -----------------------
+// // -----------------------
 
+// setAI(var data) {
+//   _getPref().then((value) {
+//     value.setString(AI, data);
+//   });
+// }
 
+// setFLOWER(var data) {
+//   _getPref().then((value) {
+//     value.setString(FLOWER, data);
+//   });
+// }
 
-setAI(var data) {
-  _getPref().then((value){value.setString(AI, data);});
-}
+// setECONOMICS(var data) {
+//   _getPref().then((value) {
+//     value.setString(ECONOMICS, data);
+//   });
+// }
 
-setFLOWER(var data) {
-  _getPref().then((value){value.setString(FLOWER, data);});
-}
+// setAQUARIUM(var data) {
+//   _getPref().then((value) {
+//     value.setString(AQUARIUM, data);
+//   });
+// }
 
-setECONOMICS(var data) {
-  _getPref().then((value){value.setString(ECONOMICS, data);});
-}
+// setPHILOSOPHY(var data) {
+//   _getPref().then((value) {
+//     value.setString(PHILOSOPHY, data);
+//   });
+// }
 
-setAQUARIUM(var data) {
-  _getPref().then((value){value.setString(AQUARIUM, data);});
-}
+// setHISTORY(var data) {
+//   _getPref().then((value) {
+//     value.setString(HISTORY, data);
+//   });
+// }
 
-setPHILOSOPHY(var data) {
-  _getPref().then((value){value.setString(PHILOSOPHY, data);});
-}
+// setCATE(var data) {
+//   _getPref().then((value) {
+//     value.setString(CATE, data);
+//   });
+// }
 
-setHISTORY(var data) {
-  _getPref().then((value){value.setString(HISTORY, data);});
-}
+// setTRAVEL(var data) {
+//   _getPref().then((value) {
+//     value.setString(TRAVEL, data);
+//   });
+// }
 
-setCATE(var data) {
-  _getPref().then((value){value.setString(CATE, data);});
-}
+// setPARENTING(var data) {
+//   _getPref().then((value) {
+//     value.setString(PARENTING, data);
+//   });
+// }
 
-setTRAVEL(var data) {
-  _getPref().then((value){value.setString(TRAVEL, data);});
-}
+// setPSYCHOLOGY(var data) {
+//   _getPref().then((value) {
+//     value.setString(PSYCHOLOGY, data);
+//   });
+// }
 
-setPARENTING(var data) {
-  _getPref().then((value){value.setString(PARENTING, data);});
-}
+// /*
+//  * 当前用户信息
+//  */
+// var CURRENT_USER = 'CURRENT_USER';
 
-setPSYCHOLOGY(var data) {
-  _getPref().then((value){value.setString(PSYCHOLOGY, data);});
-}
+// /*
+//  * 历史 + 现在 suo'y
+//  */
+// var USERS = 'USERS';
 
-/*
- * 当前用户信息
- */
-var CURRENT_USER = 'CURRENT_USER';
+// /*
+//  * Map - 键值对
+//  * 
+//  * key - value 键值对
+//  */
+// var USER_FAVORITES = 'USER_FAVORITES';
 
-/*
- * 历史 + 现在 suo'y
- */
-var USERS = 'USERS';
+// setCURRENT_USER(var data) {
+//   _getPref().then((value) {
+//     value.setString(CURRENT_USER, data);
+//   });
+// }
 
-/*
- * Map - 键值对
- * 
- * key - value 键值对
- */
-var USER_FAVORITES = 'USER_FAVORITES';
+// setUSERS(var data) {
+//   _getPref().then((value) {
+//     value.setString(USERS, data);
+//   });
+// }
 
-setCURRENT_USER(var data) {
-  _getPref().then((value){value.setString(CURRENT_USER, data);});
-}
+// setUSER_FAVORITES(var data) {
+//   _getPref().then((value) {
+//     value.setString(USER_FAVORITES, data);
+//   });
+// }
 
-setUSERS(var data) {
-  _getPref().then((value){value.setString(USERS, data);});
-}
+// getCURRENT_USER() {
+//   _getPref().then((value) {
+//     value.getString(CURRENT_USER) ?? "";
+//   });
+// }
 
-setUSER_FAVORITES(var data) {
-  _getPref().then((value){value.setString(USER_FAVORITES, data);});
-}
+// getUSERS() {
+//   _getPref().then((value) {
+//     value.getString(USERS) ?? "";
+//   });
+// }
 
-getCURRENT_USER() {
-  _getPref().then((value){value.getString(CURRENT_USER)??"";});
-}
+// getUSER_FAVORITES() {
+//   _getPref().then((value) {
+//     value.getString(USER_FAVORITES) ?? "";
+//   });
+// }
 
-getUSERS() {
-  _getPref().then((value){value.getString(USERS)??"";});
-}
+// // -----------------------------
 
-getUSER_FAVORITES() {
-  _getPref().then((value){value.getString(USER_FAVORITES)??"";});
-}
+// var SEARCH_HISTORY = 'SEARCH_HISTORY';
 
-// -----------------------------
+// setSEARCH_HISTORY(var data) {
+//   _getPref().then((value) {
+//     value.setString(SEARCH_HISTORY, data);
+//   });
+// }
 
-var SEARCH_HISTORY = 'SEARCH_HISTORY';
+// getSEARCH_HISTORY() {
+//   _getPref().then((value) {
+//     return value.getString(SEARCH_HISTORY) ?? "";
+//   });
+// }
 
-setSEARCH_HISTORY(var data) {
-  _getPref().then((value){value.setString(SEARCH_HISTORY, data);});
-}
+// //-----------------------
 
-getSEARCH_HISTORY() {
-  _getPref().then((value){return value.getString(SEARCH_HISTORY)??"";});
-}
+// /*
+//  * History
+//  */
+// addHistory(String value) {
+//   String info = getSEARCH_HISTORY() ?? "";
+//   List histories = [];
+//   if (info.length == 0) {
+//     histories.add(value.toString());
+//   } else {
+//     histories = json.decode(info);
+//     if (histories.length == 10) {
+//       histories.removeAt(9);
+//     }
+//     histories.add(value.toString());
+//   }
+//   addH(json.encode(histories).toString());
+//   print("json.encode(histories)--------------------------");
+//   print("-----" +
+//       json.encode(histories).toString() +
+//       "---->" +
+//       getH().toString());
+// }
 
-//-----------------------
+// Future<void> _incrementCounter() async {
+//   final SharedPreferences prefs = await _prefs;
+//   final int counter = (prefs.getInt('counter') ?? 0) + 1;
 
-/*
- * History
- */
-addHistory(String value) {
-  String info = getSEARCH_HISTORY()??"";
-  List histories = [];
-  if(info.length == 0) {
-    histories.add(value.toString());
-  }else{
-    histories = json.decode(info);
-    if(histories.length == 10) {
-      histories.removeAt(9);
-    }
-    histories.add(value.toString());
-  }
-  addH(json.encode(histories).toString());
-  print("json.encode(histories)--------------------------");
-  getH().then((value){
-    print("-----" + json.encode(histories).toString()+ "---->" + value.toString());
-  });
-  
-}
+//   setState(() {
+//     _counter = prefs.setInt("counter", counter).then((bool success) {
+//       return counter;
+//     });
+//   });
+// }
 
-Future<String> getH()async{
-final prefs = await SharedPreferences.getInstance();
+// Future<String> getH() async {
+//   final prefs = await SharedPreferences.getInstance();
 
-// Try reading data from the counter key. If it does not exist, return 0.
-final counter = prefs.getString('counter').toString() ?? "";
-}
+// // Try reading data from the counter key. If it does not exist, return 0.
+//   final counter = prefs.getString('counter').toString() ?? "";
+// }
 
+// addH(counter) async {
+//   final prefs = await SharedPreferences.getInstance();
 
-addH(counter)async{
-final prefs = await SharedPreferences.getInstance();
+// // set value
+//   prefs.setString('counter', counter.toString());
+// }
 
+// List<String> getHistories() {
+//   deleteH();
+//   getH().then((value) {
+//     print("info--------------------------------------------");
+//     print(value);
+//     return value.toString().length != 0 ? json.decode(value.toString()) : [];
+//   });
+// }
 
-// set value
-print("9999999999999999999999999999999999"+prefs.setString('counter', counter.toString()).toString());
-}
+// deleteH() async {
+//   print('----------++++++++++++++++++++++++++++++----------');
+//   final prefs = await SharedPreferences.getInstance();
+//   prefs.remove('counter');
+// }
 
-List<String> getHistories() {
-  deleteH();
-  getH().then((value){
-  print("info--------------------------------------------");
-  print(value);
-  return value.toString().length!=0?json.decode(value.toString()):[];
-  });
-}
+// // ----------------------------
 
-deleteH() async{
-  print('----------++++++++++++++++++++++++++++++----------');
-  final prefs = await SharedPreferences.getInstance();
-  prefs.remove('counter');
-}
+// /*
+//  * USER favorites
+//  */
+// List getFavoritesByUser(String userid) {
+//   String user_favorites = getUSER_FAVORITES() ?? "";
+//   if (user_favorites.length == 0) return [];
+//   Map<String, List> user_fmap = json.decode(user_favorites);
+//   if (user_fmap[userid] == null || user_fmap[userid].length == 0)
+//     return [];
+//   else
+//     return user_fmap[userid];
+// }
 
-
-// ----------------------------
-
-/*
- * USER favorites
- */
-List getFavoritesByUser(String userid) {
-  String user_favorites = getUSER_FAVORITES()??"";
-  if(user_favorites.length == 0) return [];
-  Map<String, List> user_fmap = json.decode(user_favorites);
-  if(user_fmap[userid] == null || user_fmap[userid].length == 0) return [];
-  else return user_fmap[userid];
-}
-
-addUserFavorite(String userid){}
+// addUserFavorite(String userid) {}
