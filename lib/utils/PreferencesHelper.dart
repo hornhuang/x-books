@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 // 人工智能
@@ -168,5 +170,77 @@ setSEARCH_HISTORY(var data) {
 }
 
 getSEARCH_HISTORY() {
-  _getPref().then((value){value.getString(SEARCH_HISTORY)??"";});
+  _getPref().then((value){return value.getString(SEARCH_HISTORY)??"";});
 }
+
+//-----------------------
+
+/*
+ * History
+ */
+addHistory(String value) {
+  String info = getSEARCH_HISTORY()??"";
+  List histories = [];
+  if(info.length == 0) {
+    histories.add(value.toString());
+  }else{
+    histories = json.decode(info);
+    if(histories.length == 10) {
+      histories.removeAt(9);
+    }
+    histories.add(value.toString());
+  }
+  addH(json.encode(histories).toString());
+  print("json.encode(histories)--------------------------");
+  getH().then((value){
+    print("-----" + json.encode(histories).toString()+ "---->" + value.toString());
+  });
+  
+}
+
+Future<String> getH()async{
+final prefs = await SharedPreferences.getInstance();
+
+// Try reading data from the counter key. If it does not exist, return 0.
+final counter = prefs.getString('counter').toString() ?? "";
+}
+
+
+addH(counter)async{
+final prefs = await SharedPreferences.getInstance();
+
+
+// set value
+print("9999999999999999999999999999999999"+prefs.setString('counter', counter.toString()).toString());
+}
+
+List<String> getHistories() {
+  deleteH();
+  getH().then((value){
+  print("info--------------------------------------------");
+  print(value);
+  return value.toString().length!=0?json.decode(value.toString()):[];
+  });
+}
+
+deleteH() async{
+  print('----------++++++++++++++++++++++++++++++----------');
+  final prefs = await SharedPreferences.getInstance();
+  prefs.remove('counter');
+}
+
+
+// ----------------------------
+
+/*
+ * USER favorites
+ */
+List getFavoritesByUser(String userid) {
+  String user_favorites = getUSER_FAVORITES()??"";
+  if(user_favorites.length == 0) return [];
+  Map<String, List> user_fmap = json.decode(user_favorites);
+  if(user_fmap[userid] == null || user_fmap[userid].length == 0) return [];
+  else return user_fmap[userid];
+}
+
+addUserFavorite(String userid){}
