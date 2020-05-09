@@ -37,7 +37,6 @@ class _TabsState extends State<Tabs> {
               this._concurrentindex = index;
             });
           },
-          fixedColor: Colors.red,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.book),
