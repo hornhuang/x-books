@@ -1,23 +1,33 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+// 人工智能
 var AI = 'AI';
 
+// 花卉
 var FLOWER = 'FLOWER';
 
+//经济学
 var ECONOMICS = 'ECONOMICS';
 
+// 水族
 var AQUARIUM = 'AQUARIUM';
 
+//哲学
 var PHILOSOPHY = 'PHILOSOPHY';
 
+// 历史
 var HISTORY = 'HISTORY';
 
+// 美食
 var CATE = 'CATE';
 
+// 旅游
 var TRAVEL = 'TRAVEL';
 
+// 育儿
 var PARENTING = 'PARENTING';
 
+// 心理学
 var PSYCHOLOGY = 'PSYCHOLOGY';
 
 Future<SharedPreferences> _getPref() async{
@@ -108,17 +118,17 @@ setPSYCHOLOGY(var data) {
   _getPref().then((value){value.setString(PSYCHOLOGY, data);});
 }
 
-/**
+/*
  * 当前用户信息
  */
 var CURRENT_USER = 'CURRENT_USER';
 
-/**
+/*
  * 历史 + 现在 suo'y
  */
 var USERS = 'USERS';
 
-/**
+/*
  * Map - 键值对
  * 
  * key - value 键值对
