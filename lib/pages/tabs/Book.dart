@@ -54,16 +54,6 @@ class _BookPageState extends State<BookPage>
       body: TabBarView(
         controller: this._tabController,
         children: <Widget>[
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
-            // Center(child: Example08()),
             Center(child: BookTabs("人工智能")),
             Center(child: BookTabs("花卉")),
             Center(child: BookTabs("经济学")),
