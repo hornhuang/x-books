@@ -9,11 +9,12 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MyTheme.updateThme(false);
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       home: Tabs(),
       onGenerateRoute: onGenerateRoute,
-      theme: false?getThemeStatus():null
+      theme: MyTheme.isDarkTheme()?getThemeStatus():null
     );
   }
 }
