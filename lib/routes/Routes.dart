@@ -7,7 +7,8 @@ import 'package:xbooks/pages/tabs/BookTabs.dart';
 final routes = {
   '/': (context) => Tabs(),
   '/bookdetail': (context, {arguments}) => WebViewExample(arguments: arguments),
-  '/booktabs': (context, {category, arguments}) => BookTabs(category, arguments:arguments)
+  '/booktabs': (context, {category, arguments}) =>
+      BookTabs(category, arguments: arguments)
 };
 
 //固定写法
