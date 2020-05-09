@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 import 'package:xbooks/utils/PreferencesHelper.dart';
 
 class FindPage extends StatefulWidget {
@@ -47,15 +48,27 @@ class _FindPageState extends State<FindPage> {
   void initState() {
     super.initState();
     _prefs.then((SharedPreferences prefs) {
-      return (prefs.getString('his') ?? '[]');
+      return (prefs.getString('history') ?? '[]');
     }).then((value) {
       setState(() {
-        print("66666666666666666666666666666666666666");
         print(history);
         this.history = List<String>.from(json.decode(value));
-        
-        print("77777777777777777777777777777777777777");
         print(history.length);
+      });
+    });
+  }
+
+    Future<void> _addHistory(String newHis) async {
+    final SharedPreferences prefs = await _prefs;
+    if(history.length == 10) {
+      history.removeAt(9);
+    }
+    history.add(newHis);
+    final String histories = json.encode(history);
+
+    setState(() {
+      prefs.setString("history", histories).then((bool success) {
+        Toast.show("newHis", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
       });
     });
   }
