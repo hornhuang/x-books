@@ -136,6 +136,7 @@ class _Tile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
+          print(666);
           Navigator.pushNamed(context, '/bookdetail');
         },
         child: Card(
