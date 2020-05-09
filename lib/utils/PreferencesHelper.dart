@@ -7,20 +7,24 @@ import 'package:shared_preferences/shared_preferences.dart';
  */
 class MyTheme {
 
-  static final String IS_DARK_THEME = 'is_dark_theme';
+  static final String _IS_DARK_THEME = 'is_dark_theme';
 
-  static bool isDarkTheme = readTheme();
+  static bool _isDarkTheme = readTheme();
+
+  static bool isDarkTheme() {
+    readTheme();
+    return _isDarkTheme;
+  }
 
   static updateThme(bool isDarkTheme) async {
-    MyTheme.isDarkTheme = isDarkTheme;
+    MyTheme._isDarkTheme = isDarkTheme;
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool(IS_DARK_THEME, isDarkTheme);
+    prefs.setBool(_IS_DARK_THEME, isDarkTheme);
   }
 
   static readTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    isDarkTheme = prefs.getBool(IS_DARK_THEME) ?? false;
-    return isDarkTheme;
+    _isDarkTheme = prefs.getBool(_IS_DARK_THEME);
   }
 
 }
