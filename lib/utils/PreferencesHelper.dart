@@ -9,22 +9,14 @@ class MyTheme {
 
   static final String _IS_DARK_THEME = 'is_dark_theme';
 
-  static bool _isDarkTheme = readTheme();
-
-  static bool isDarkTheme() {
-    readTheme();
-    return _isDarkTheme;
-  }
-
-  static updateThme(bool isDarkTheme) async {
-    MyTheme._isDarkTheme = isDarkTheme;
+  static updateTheme(bool isDarkTheme) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool(_IS_DARK_THEME, isDarkTheme);
   }
 
-  static readTheme() async {
+  static Future<bool> readTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    _isDarkTheme = prefs.getBool(_IS_DARK_THEME);
+    prefs.getBool(_IS_DARK_THEME);
   }
 
 }
