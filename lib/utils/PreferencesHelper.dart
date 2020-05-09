@@ -1,6 +1,29 @@
-// import 'dart:convert';
+import 'dart:convert';
 
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+/*
+ * 主题
+ */
+class MyTheme {
+
+  static final String IS_DARK_THEME = 'is_dark_theme';
+
+  static bool isDarkTheme = readTheme();
+
+  static updateThme(bool isDarkTheme) async {
+    MyTheme.isDarkTheme = isDarkTheme;
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool(IS_DARK_THEME, isDarkTheme);
+  }
+
+  static readTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    isDarkTheme = prefs.getBool(IS_DARK_THEME) ?? false;
+    return isDarkTheme;
+  }
+
+}
 
 // // 人工智能
 // var AI = 'AI';
@@ -170,7 +193,7 @@
 
 // /*
 //  * Map - 键值对
-//  * 
+//  *
 //  * key - value 键值对
 //  */
 // var USER_FAVORITES = 'USER_FAVORITES';
