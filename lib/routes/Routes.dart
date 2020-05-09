@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:xbooks/pages/Tab.dart';
+import 'package:xbooks/pages/tabs/BookDetail.dart';
 
 //import '../pages/Tabs.dart';
 
@@ -6,7 +8,8 @@ import 'package:flutter/material.dart';
 
 //配置路由
 final routes = {
-  //'/': (context) => Tabs(),
+  '/': (context) => Tabs(),
+  '/bookdetail': (context) => WebViewExample()
 };
 
 //固定写法
