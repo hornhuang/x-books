@@ -134,40 +134,44 @@ class _Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Card(
-      child: new Column(
-        children: <Widget>[
-          new Stack(
+    return InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, '/bookdetail');
+        },
+        child: Card(
+          child: new Column(
             children: <Widget>[
-              //new Center(child: new CircularProgressIndicator()),
-              new Center(
-                child: new FadeInImage.memoryNetwork(
-                  placeholder: kTransparentImage,
-                  // https://picsum.photos/${size.width}/${size.height}/
-                  image: book["cover_url"] != null
-                      ? book["cover_url"]
-                      : "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588970321862&di=abd4a3f38e76e44336064bd4bec32bab&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fda0d08a1ab1918c0c0c34985731c3dbf9ccb31e15af07-8onYSf_fw658",
-                ),
+              new Stack(
+                children: <Widget>[
+                  //new Center(child: new CircularProgressIndicator()),
+                  new Center(
+                    child: new FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      // https://picsum.photos/${size.width}/${size.height}/
+                      image: book["cover_url"] != null
+                          ? book["cover_url"]
+                          : "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588970321862&di=abd4a3f38e76e44336064bd4bec32bab&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fda0d08a1ab1918c0c0c34985731c3dbf9ccb31e15af07-8onYSf_fw658",
+                    ),
+                  ),
+                ],
               ),
+              new Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: new Column(
+                  children: <Widget>[
+                    new Text(
+                      book["title"],
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    new Text(
+                      book["abstract"],
+                      style: const TextStyle(color: Colors.grey),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
-          new Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new Column(
-              children: <Widget>[
-                new Text(
-                  book["title"],
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                new Text(
-                  book["abstract"],
-                  style: const TextStyle(color: Colors.grey),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
+        ));
   }
 }
