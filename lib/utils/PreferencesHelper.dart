@@ -34,43 +34,43 @@ Future<SharedPreferences> _getPref() async{
   return await SharedPreferences.getInstance();
 }
 
-getAI(var data) {
+getAI() {
   _getPref().then((value){value.getString(AI)??"";});
 }
 
-getFLOWER(var data) {
+getFLOWER() {
   _getPref().then((value){value.getString(FLOWER)??"";});
 }
 
-getECONOMICS(var data) {
+getECONOMICS() {
   _getPref().then((value){value.getString(ECONOMICS)??"";});
 }
 
-getAQUARIUM(var data) {
+getAQUARIUM() {
   _getPref().then((value){value.getString(AQUARIUM)??"";});
 }
 
-getPHILOSOPHY(var data) {
+getPHILOSOPHY() {
   _getPref().then((value){value.getString(PHILOSOPHY)??"";});
 }
 
-getHISTORY(var data) {
+getHISTORY() {
   _getPref().then((value){value.getString(HISTORY)??"";});
 }
 
-getCATE(var data) {
+getCATE() {
   _getPref().then((value){value.getString(CATE)??"";});
 }
 
-getTRAVEL(var data) {
+getTRAVEL() {
   _getPref().then((value){value.getString(TRAVEL)??"";});
 }
 
-getPARENTING(var data) {
+getPARENTING() {
   _getPref().then((value){value.getString(PARENTING)??"";});
 }
 
-getPSYCHOLOGY(var data) {
+getPSYCHOLOGY() {
   _getPref().then((value){value.getString(PSYCHOLOGY)??"";});
 }
 
@@ -147,14 +147,26 @@ setUSER_FAVORITES(var data) {
   _getPref().then((value){value.setString(USER_FAVORITES, data);});
 }
 
-getCURRENT_USER(var data) {
+getCURRENT_USER() {
   _getPref().then((value){value.getString(CURRENT_USER)??"";});
 }
 
-getUSERS(var data) {
+getUSERS() {
   _getPref().then((value){value.getString(USERS)??"";});
 }
 
-getUSER_FAVORITES(var data) {
+getUSER_FAVORITES() {
   _getPref().then((value){value.getString(USER_FAVORITES)??"";});
+}
+
+// -----------------------------
+
+var SEARCH_HISTORY = 'SEARCH_HISTORY';
+
+setSEARCH_HISTORY(var data) {
+  _getPref().then((value){value.setString(SEARCH_HISTORY, data);});
+}
+
+getSEARCH_HISTORY() {
+  _getPref().then((value){value.getString(SEARCH_HISTORY)??"";});
 }
