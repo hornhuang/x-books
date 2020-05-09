@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       home: Tabs(),
       onGenerateRoute: onGenerateRoute,
-      theme: MyTheme.isDarkTheme()?getThemeStatus():null
+      darkTheme: getThemeStatus(),
     );
   }
 }
