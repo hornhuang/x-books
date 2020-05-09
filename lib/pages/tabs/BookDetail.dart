@@ -19,11 +19,22 @@ The navigation delegate is set to block navigation to the youtube website.
 ''';
 
 class WebViewExample extends StatefulWidget {
+  
+  final Map _arguments;
+
+  WebViewExample(this._arguments, { Key key})  : super(key: key);
+
   @override
-  _WebViewExampleState createState() => _WebViewExampleState();
+  _WebViewExampleState createState() => _WebViewExampleState(_arguments != null
+      ? _arguments['url']
+      : 'https://github.com/FishInWater-1roid_interviews');
 }
 
 class _WebViewExampleState extends State<WebViewExample> {
+  var _webUrl;
+
+  _WebViewExampleState(this._webUrl);
+
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
@@ -42,7 +53,7 @@ class _WebViewExampleState extends State<WebViewExample> {
       // to allow calling Scaffold.of(context) so we can show a snackbar.
       body: Builder(builder: (BuildContext context) {
         return WebView(
-          initialUrl: 'https://flutter.dev',
+          initialUrl: _webUrl,
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {
             _controller.complete(webViewController);
