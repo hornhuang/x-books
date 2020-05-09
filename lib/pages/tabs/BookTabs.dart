@@ -138,7 +138,7 @@ class _Tile extends StatelessWidget {
         onTap: () {
           print(666);
           Navigator.pushNamed(context, '/bookdetail', arguments: {
-            'url': book["url"]!=null?book["url"]:'https://book.douban.com/subject/30441/'
+            'url': book["url"] 
           });
         },
         child: Card(
