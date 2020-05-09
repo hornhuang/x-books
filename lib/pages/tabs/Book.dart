@@ -45,7 +45,7 @@ class _BookPageState extends State<BookPage>
             Tab(text:"水族"),
             Tab(text:"哲学"),
             Tab(text:"历史"),
-            Tab(text:"没事"),
+            Tab(text:"美食"),
             Tab(text:"旅游"),
             Tab(text:"育儿"),
             Tab(text:"心理学")
@@ -55,13 +55,23 @@ class _BookPageState extends State<BookPage>
       body: TabBarView(
         controller: this._tabController,
         children: <Widget>[
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
+            // Center(child: Example08()),
             Center(child: BookTabs("人工智能")),
             Center(child: BookTabs("花卉")),
             Center(child: BookTabs("经济学")),
             Center(child: BookTabs("水族")),
             Center(child: BookTabs("哲学")),
             Center(child: BookTabs("历史")),
-            Center(child: BookTabs("没事")),
+            Center(child: BookTabs("美食")),
             Center(child: BookTabs("旅游")),
             Center(child: BookTabs("育儿")),
             Center(child: BookTabs("心理学"))
