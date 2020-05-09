@@ -73,22 +73,28 @@ final Uint8List kTransparentImage = new Uint8List.fromList(<int>[
 ]);
 
 class BookTabs extends StatefulWidget {
+  var arguments;
+
   String _category;
 
-  BookTabs(this._category, {Key key}) : super(key: key);
+  BookTabs(this._category, {this.arguments, Key key}) : super(key: key);
 
   @override
   _BookTabsState createState() {
-    return _BookTabsState(this._category);
+    return arguments != null
+        ? _BookTabsState(this._category, value: arguments['url'])
+        : _BookTabsState(this._category, value: null);
   }
 }
 
 class _BookTabsState extends State<BookTabs> {
+  String value;
+
   String _category;
 
   var _booksList = [];
 
-  _BookTabsState(this._category);
+  _BookTabsState(this._category, {this.value});
 
   @override
   void initState() {
@@ -97,9 +103,10 @@ class _BookTabsState extends State<BookTabs> {
   }
 
   _getBooks() async {
-    var apiUrl = GET_BOOKS_BY_NAME + this._category;
+    var apiUrl = GET_BOOKS_BY_NAME + value != null ? value : this._category;
     Response response = await Dio().get(apiUrl);
     setState(() {
+      print(response.data);
       this._booksList = response.data;
     });
   }
@@ -138,7 +145,9 @@ class _Tile extends StatelessWidget {
         onTap: () {
           print(666);
           Navigator.pushNamed(context, '/bookdetail', arguments: {
-            'url': book["url"] 
+            'url': book["url"] != null
+                ? book["url"]
+                : 'https://book.douban.com/subject/30441/'
           });
         },
         child: Card(
