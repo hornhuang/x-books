@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:xbooks/utils/PreferencesHelper.dart';
 
 class FindPage extends StatefulWidget {
   FindPage({Key key}) : super(key: key);
@@ -25,7 +29,36 @@ class _FindPageState extends State<FindPage> {
     },
   ];
 
+  List<String> history = [
+    "1 我喜欢",
+    "2 我喜欢",
+    "3 我喜欢",
+    "4 我喜欢",
+    "5 我喜欢",
+    "6 我喜欢",
+    "7 我喜欢",
+  ];
+
   var value = TextEditingController();
+
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  @override
+  void initState() {
+    super.initState();
+    _prefs.then((SharedPreferences prefs) {
+      return (prefs.getString('his') ?? '[]');
+    }).then((value) {
+      setState(() {
+        print("66666666666666666666666666666666666666");
+        print(history);
+        this.history = List<String>.from(json.decode(value));
+        
+        print("77777777777777777777777777777777777777");
+        print(history.length);
+      });
+    });
+  }
 
   List<Widget> render(BuildContext context, List children) {
     return ListTile.divideTiles(
@@ -52,16 +85,6 @@ class _FindPageState extends State<FindPage> {
       ),
     );
   }
-
-  List<String> history = [
-    "1 我喜欢",
-    "2 我喜欢",
-    "3 我喜欢",
-    "4 我喜欢",
-    "5 我喜欢",
-    "6 我喜欢",
-    "7 我喜欢",
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +169,8 @@ class _FindPageState extends State<FindPage> {
   }
 }
 
+addFavorite(String value) {}
+
 class MyButton extends StatelessWidget {
   final String text;
 
@@ -155,7 +180,6 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return RaisedButton(
         child: Text(this.text),
         textColor: Colors.black,
