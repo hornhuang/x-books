@@ -58,9 +58,10 @@ class _FindPageState extends State<FindPage> {
     });
   }
 
-    Future<void> _addHistory(String newHis) async {
+  Future<void> _addHistory(String newHis) async {
+    history.remove(newHis);
     final SharedPreferences prefs = await _prefs;
-    if(history.length == 10) {
+    if (history.length == 10) {
       history.removeAt(9);
     }
     history.add(newHis);
@@ -68,7 +69,8 @@ class _FindPageState extends State<FindPage> {
 
     setState(() {
       prefs.setString("history", histories).then((bool success) {
-        Toast.show("newHis", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+        Toast.show("newHis", context,
+            duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
       });
     });
   }
@@ -103,7 +105,7 @@ class _FindPageState extends State<FindPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 5.0),
+            padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
             child: Column(children: <Widget>[
               Container(
                 width: double.infinity,
@@ -118,6 +120,7 @@ class _FindPageState extends State<FindPage> {
                         icon: Icon(Icons.search),
                         hintText: "(●'◡'●)/ 我是接线员",
                       ),
+                      style: TextStyle(fontSize: 15),
                       onChanged: (value) {
                         setState(() {
                           this.value.text = value;
@@ -133,8 +136,9 @@ class _FindPageState extends State<FindPage> {
                         textColor: Colors.white,
                         elevation: 20,
                         onPressed: () {
+                          _addHistory(this.value.text);
                           Navigator.pushNamed(context, '/booktabs',
-                              arguments: {'url': this.value});
+                              arguments: {'url': this.value.text});
                         },
                       ))
                 ]),
@@ -166,12 +170,14 @@ class _FindPageState extends State<FindPage> {
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   )),
-              Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: history.map((value) {
-                    return MyButton(this, value);
-                  }).toList())
+              Container(
+                  width: double.infinity,
+                  child: Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: history.map((value) {
+                        return MyButton(this, value);
+                      }).toList()))
             ])));
   }
 
