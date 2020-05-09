@@ -9,7 +9,7 @@ import 'package:xbooks/pages/tabs/BookDetail.dart';
 //配置路由
 final routes = {
   '/': (context) => Tabs(),
-  '/bookdetail': (context, {arguments}) => WebViewExample(arguments: arguments)
+  '/bookdetail': (context, {arguments}) => WebView(arguments: arguments)
 };
 
 //固定写法
