@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:xbooks/pages/Tab.dart';
 import 'package:xbooks/pages/tabs/BookDetail.dart';
-
-//import '../pages/Tabs.dart';
-
-//import '../pages/Button.dart';
+import 'package:xbooks/pages/tabs/BookTabs.dart';
 
 //配置路由
 final routes = {
   '/': (context) => Tabs(),
-  '/bookdetail': (context, {arguments}) => WebView(arguments: arguments)
+  '/bookdetail': (context, {arguments}) => WebViewExample(arguments: arguments),
+  '/booktabs': (context, {category, arguments}) => BookTabs(category, arguments:arguments)
 };
 
 //固定写法
