@@ -18,6 +18,8 @@ environment:
 
 dependencies:
   dio: ^3.0.9
+  flutter_staggered_grid_view: ^0.3.0
+  webview_flutter: ^0.3.21
   flutter:
     sdk: flutter
 
