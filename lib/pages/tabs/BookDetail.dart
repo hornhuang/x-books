@@ -18,24 +18,24 @@ The navigation delegate is set to block navigation to the youtube website.
 </html>
 ''';
 
-class WebView extends StatefulWidget {
+class WebViewExample extends StatefulWidget {
   
   final Map arguments;
 
-  WebView({Key key, this.arguments})  : super(key: key);
+  WebViewExample({Key key, this.arguments})  : super(key: key);
 
   @override
-  _WebViewState createState() => _WebViewState(
+  _WebViewExampleState createState() => _WebViewExampleState(
     arguments != null
       ? this.arguments['url']
       : 'https://github.com/FishInWater-1roid_interviews');
 }
 
-class _WebViewState extends State<WebView> {
+class _WebViewExampleState extends State<WebViewExample> {
   
   var _webUrl;
 
-  _WebViewState(this._webUrl);
+  _WebViewExampleState(this._webUrl);
 
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
